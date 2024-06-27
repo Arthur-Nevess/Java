@@ -41,27 +41,34 @@ public class Adivinhação {
                 break;
         }
 
+
+
+
         for ( int i = 0 ; i < tentativas ; i++)
         {
             System.out.println("Chance %d de %d".formatted((i+1), tentativas));
-            System.out.println("Digite um número entre o e 100");
+            System.out.println("Digite um número entre 0 e 100");
             chute = scanner.nextInt();
+            boolean maior = chute > numSecreto;
+            boolean menor = chute < numSecreto;
+            boolean igual = chute == numSecreto;
 
-            if(chute == numSecreto)
+            if(igual)
             {
                 acertou = true;
                 break;
             }
 
-            else if(chute < numSecreto)
+            else if(menor)
             {
                 System.out.println("O número secreto é maior que (%d)".formatted(chute));
+                System.err.println(" ");
             }
 
-            else if(chute > numSecreto)
+            else if(maior)
             {
                 System.out.println("O número secreto é menor que (%d)".formatted(chute));
-               
+                System.err.println(" ");
             }
 
             else
